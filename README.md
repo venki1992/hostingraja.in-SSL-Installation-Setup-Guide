@@ -69,7 +69,7 @@ The above script was used to install SSL on Linux VPS server.  This script uses 
 Before to use Let’s Encrypt,  We need to install python for apache. And also we have the option to install SSL for a domain with or without www. Once we complete installation, SSL pem file are created in path /letsencrypt/path/live/example.com/.
 
 
-In Apache configuration file update the pem file path and check document root and domain name are correct.  once everything is  correct restart the httpd service.
+In Apache configuration file update the pem file path and check document root and domain name are correct. Once everything is  correct restart the httpd service.
 
 SSL uses:
 
