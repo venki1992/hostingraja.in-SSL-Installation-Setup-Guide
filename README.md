@@ -6,33 +6,61 @@ SSL installation script
 
 
 #!/bin/sh
+
 domain="example.com"
+
 mail="mail@example.com"
+
 wwwoption="with"
+
 dir="/var/log/letsencrypt/"
+
 if [ ! -d "$dir" ]
+
 then
+
         mkdir /var/log/letsencrypt/
+        
 fi
+
 chmod 755 /var/log/letsencrypt/
+
 file="/var/log/letsencrypt/$domain.log"
+
 if [ ! -f "$file" ]
+
 then
+
         touch /var/log/letsencrypt/$domain.log
+        
 fi
+
 echo "started" > /var/log/letsencrypt/$domain.log
+
 chmod 777 /var/log/letsencrypt/$domain.log
+
 chown apache:apache /var/log/letsencrypt/$domain.log
+
 yum -y install python-certbot-apache
+
 if  [[ "$wwwoption" = "with" ]]; then
+
 /usr/local/letsencrypt/./certbot-auto certonly --apache --agree-tos --non-interactive --verbose --no-self-upgrade -d $domain -d www.$domain --email $mail
+
 else
+
 /usr/local/letsencrypt/./certbot-auto certonly --apache --agree-tos --non-interactive --verbose --no-self-upgrade -d $domain --email $mail
+
 fi
+
 chmod 755 /var/log/letsencrypt/
+
 chmod 777 /var/log/letsencrypt/$domain.log
+
 chown apache:apache /var/log/letsencrypt/$domain.log
+
 echo "completed" > /var/log/letsencrypt/$domain.log
+
 /usr/bin/php /etc/sentora/panel/bin/daemon.php
 
 
