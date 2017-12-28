@@ -75,6 +75,6 @@ SSL uses:
 
 SSL is the backbone of our secure Internet and it protects your sensitive information as it travels across the world's computer networks. SSL is essential for protecting your website, even if it doesn't handle sensitive information like credit cards. It provides privacy, critical security and data integrity for both your websites and your users' personal information.
 
-when you install SSL for your domain it will have the impact on the reputaion.HopstingRaja servers builted with world class components that assures you the reliable services.
+when you install SSL for your domain it will have the impact on the reputaion.HostingRaja servers builted with world class components that assures you the reliable services.
 
 Visit HostingRaja.in for buying VPS, We provide FREE ssl with every VPS plan chosen.
