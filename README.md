@@ -1,7 +1,9 @@
 # hostingraja.in-SSL-Installation-Setup-Guide
 This script helpsyou to install SSL on Linux VPS server provided by HostingRaja.  This scripts lets  you install the " Let’s Encrypt", Let’s Encrypt is an open source tool for SSL installation.
 
+
 SSL installation script 
+
 
 #!/bin/sh
 domain="example.com"
@@ -33,9 +35,12 @@ chown apache:apache /var/log/letsencrypt/$domain.log
 echo "completed" > /var/log/letsencrypt/$domain.log
 /usr/bin/php /etc/sentora/panel/bin/daemon.php
 
+
 The above script was used to install SSL on Linux VPS server.  This script uses Let’s Encrypt to achieve this. Let’s Encrypt is an open source tool for SSL installation.
 
+
 Before to use Let’s Encrypt,  We need to install python for apache. And also we have the option to install SSL for a domain with or without www. Once we complete installation, SSL pem file are created in path /etc/letsencrypt/live/example.com/.
+
 
 In Apache configuration file update the pem file path and check document root and domain name are correct.  once everything is  correct restart the httpd service.
 
