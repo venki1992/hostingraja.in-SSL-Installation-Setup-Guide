@@ -23,51 +23,50 @@ then
         
 fi
 
-chmod 755 /var/log/letsencrypt/
+chmod 755 /error/log/path/
 
-file="/var/log/letsencrypt/$domain.log"
+file="/error/log/path/$domain.log"
 
 if [ ! -f "$file" ]
 
 then
 
-        touch /var/log/letsencrypt/$domain.log
+        touch /error/log/path/$domain.log
         
 fi
 
-echo "started" > /var/log/letsencrypt/$domain.log
+echo "started" > /error/log/path//$domain.log
 
-chmod 777 /var/log/letsencrypt/$domain.log
+chmod 777 /error/log/path/$domain.log
 
-chown apache:apache /var/log/letsencrypt/$domain.log
+chown apache:apache /error/log/path/$domain.log
 
 yum -y install python-certbot-apache
 
 if  [[ "$wwwoption" = "with" ]]; then
 
-/usr/local/letsencrypt/./certbot-auto certonly --apache --agree-tos --non-interactive --verbose --no-self-upgrade -d $domain -d www.$domain --email $mail
+/letsencrypt/path/./certbot-auto certonly --apache --agree-tos --non-interactive --verbose --no-self-upgrade -d $domain -d www.$domain --email $mail
 
 else
 
-/usr/local/letsencrypt/./certbot-auto certonly --apache --agree-tos --non-interactive --verbose --no-self-upgrade -d $domain --email $mail
+/letsencrypt/path/./certbot-auto certonly --apache --agree-tos --non-interactive --verbose --no-self-upgrade -d $domain --email $mail
 
 fi
 
-chmod 755 /var/log/letsencrypt/
+chmod 755 /error/log/path/
 
-chmod 777 /var/log/letsencrypt/$domain.log
+chmod 777 /error/log/path/$domain.log
 
-chown apache:apache /var/log/letsencrypt/$domain.log
+chown apache:apache /error/log/path/$domain.log
 
-echo "completed" > /var/log/letsencrypt/$domain.log
+echo "completed" > /error/log/path/$domain.log
 
-/usr/bin/php /etc/sentora/panel/bin/daemon.php
 
 
 The above script was used to install SSL on Linux VPS server.  This script uses Let’s Encrypt to achieve this. Let’s Encrypt is an open source tool for SSL installation.
 
 
-Before to use Let’s Encrypt,  We need to install python for apache. And also we have the option to install SSL for a domain with or without www. Once we complete installation, SSL pem file are created in path /etc/letsencrypt/live/example.com/.
+Before to use Let’s Encrypt,  We need to install python for apache. And also we have the option to install SSL for a domain with or without www. Once we complete installation, SSL pem file are created in path /letsencrypt/path/live/example.com/.
 
 
 In Apache configuration file update the pem file path and check document root and domain name are correct.  once everything is  correct restart the httpd service.
